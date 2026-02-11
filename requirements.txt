@@ -1,0 +1,6 @@
+streamlit
+qdrant-client
+sentence-transformers
+groq
+pandas
+python-dotenv
