@@ -27,16 +27,16 @@ Our system uses a **"Verify-Then-Generate"** pattern with three specialized agen
 
 ```mermaid
 graph TD
-    User((👤 Patient)) -->|Voice/Text| Planner(🧠 Planner Agent)
-    Planner -- "Emergency/Adversarial" --> Stop[🛑 BLOCK / 911]
-    Planner -- "Valid Intent" --> Retriever(🔎 Retriever Agent)
-    Retriever <-->|Semantic Search| Qdrant[(🗄️ Qdrant DB)]
-    Retriever -->|Raw Context| Evaluator(🛡️ Evaluator Agent)
-    Evaluator <-->|Check Constraints| Memory[(💾 Patient Memory)]
-    Evaluator -- "❌ Unsafe" --> Drop[🗑️ Drop Risk Items]
-    Evaluator -- "✅ Safe" --> LLM[🤖 Synthesis Engine]
-    LLM --> Final[💬 Clinical Response]
-    ```
+    User((Patient)) -->|Voice/Text| Planner(Planner Agent)
+    Planner -- "Emergency/Adversarial" --> Stop[BLOCK / 911]
+    Planner -- "Valid Intent" --> Retriever(Retriever Agent)
+    Retriever <-->|Semantic Search| Qdrant[(Qdrant DB)]
+    Retriever -->|Raw Context| Evaluator(Evaluator Agent)
+    Evaluator <-->|Check Constraints| Memory[(Patient Memory)]
+    Evaluator -- "Unsafe" --> Drop[Drop Risk Items]
+    Evaluator -- "Safe" --> LLM[Synthesis Engine]
+    LLM --> Final[Clinical Response]
+```
 
 
 ## The Agent Roles
